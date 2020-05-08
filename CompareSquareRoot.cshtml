@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Comparing SquareRoot Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Comparing of SquareRoot</h1>
+</div>
+
+
+
+@{
+    if(ViewBag.firstNumber != null && ViewBag.secondNumber != null)
+        {
+            
+            if(ViewBag.firstNumber <= 0 || ViewBag.secondNumber <= 0 )
+             {
+                <div>
+                    <p>There is an error, you inputed a negative number</p>
+                </div>
+             }
+             
+             else if (ViewBag.SRN1 > ViewBag.SRN2)
+             {
+                <div>
+                    <p>The number @ViewBag.firstNumber with SquareRoot @ViewBag.SRN1 has a higher SquareRoot than the number @ViewBag.secondNumber with the squareRoot @ViewBag.SRN2 </p>
+                </div>
+             }
+            
+            else if (ViewBag.SRN2 > ViewBag.SRN1)
+             {
+                <div>
+                    <p>The number @ViewBag.secondNumber with SquareRoot @ViewBag.SRN2 has a higher SquareRoot than the number @ViewBag.firstNumber with the squareRoot @ViewBag.SRN1 </p>
+                </div>
+             }
+
+            else if (ViewBag.SRN1 == ViewBag.SRN2)
+             {
+                <div>
+                    <p>The SquareRoots are the same, enter another value</p>
+                </div>
+             }
+            else
+            {
+                <div>
+                    <p>There is an error</p>
+                </div>
+            }
+            
+        }
+   
+}
+
+<div>
+    <form asp-controller="Square" asp-action="CompareSquareroot" method="POST">
+
+    <input type="number" placeholder="First Number" name="firstNumber"/>
+    <input type="number" placeholder="Second Number" name="secondNumber"/>
+    <button type="submit">Submit</button>
+
+    </form>
+   
+</div>
